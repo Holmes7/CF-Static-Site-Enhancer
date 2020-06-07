@@ -1,14 +1,14 @@
 {
-	"name": "cf-submissons",
+	"name": "cf-nos",
 	"version": "1.0",
 	"description": "Shows the number of submissions on the static (m1,m2,m3) codeforces sites",
 	"manifest_version": 2,
 	"content_scripts": [
 		{
 			"matches": [
-				"https://m1.codeforces.com/contest/*",
-				"https://m2.codeforces.com/contest/*",
-				"https://m3.codeforces.com/contest/*"
+				"*://m1.codeforces.com/contest/*",
+				"*://m2.codeforces.com/contest/*",
+				"*://m3.codeforces.com/contest/*"
 			],
 			"js": [
 				"main.js"
