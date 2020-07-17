@@ -1,8 +1,13 @@
 {
-	"name": "cf-nos",
-	"version": "1.0",
-	"description": "Shows the number of submissions on the static (m1,m2,m3) codeforces sites",
+	"name": "CF-Submission count",
+	"version": "1.0.0",
+	"description": "This extension shows you the submission count for each problem during a contest on the static codeforces websites",
 	"manifest_version": 2,
+	"icons": {
+		"48": "static/icon48.png",
+		"64": "static/icon64.png",
+		"128": "static/icon128.png"
+	},
 	"content_scripts": [
 		{
 			"matches": [
