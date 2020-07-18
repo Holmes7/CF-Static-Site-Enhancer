@@ -1,5 +1,5 @@
 {
-	"name": "CF-Submission count",
+	"name": "CF Submission Count",
 	"version": "1.0.0",
 	"description": "This extension shows you the submission count for each problem during a contest on the static codeforces websites",
 	"manifest_version": 2,

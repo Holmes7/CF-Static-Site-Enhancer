@@ -1,12 +1,12 @@
 var url = window.location.toString();
 if(url.length<=39){
-	console.log("working");
 	x();
 }
 function x()
 {
-	var contest = url.slice(34,38);
-	var str = "https://codeforces.com/contest/"+contest;
+	var contest = url.match(/\d\d\d\d/);
+	console.log(contest[0]);
+	var str = "https://codeforces.com/contest/"+contest[0];
 	chrome.runtime.sendMessage({link: str});
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse){

@@ -1,5 +1,6 @@
-# CF-nos
-Shows the number of submissions to contest problems on the static Codeforces sites
+# CF Submission Count
+
+This extension shows you the submission count for each problem during a contest on the static codeforces websites
 
 ### Setup 
 Clone the repo
