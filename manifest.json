@@ -27,7 +27,6 @@
 		"persistent": false
 	},
 	"permissions": [
-		"https://codeforces.com/*",
-		"tabs"
+		"https://codeforces.com/*"
 	]
 }
