@@ -2,7 +2,7 @@
 
 This extension shows you the submission count for each problem during a contest on the static codeforces websites
 
-![Chrome Image](static/chrome_image.png)
+![Chrome Image](chrome/static/chrome_image.png)
 
 ## Install
 
