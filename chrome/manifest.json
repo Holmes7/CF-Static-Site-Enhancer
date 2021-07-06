@@ -18,6 +18,14 @@
 			"js": [
 				"main.js"
 			]
+		},
+		{
+			"matches": [
+				"*://codeforces.com/friends"
+			],
+			"js": [
+				"friends.js"
+			]
 		}
 	],
 	"background": {
