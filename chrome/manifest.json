@@ -21,6 +21,17 @@
 			"js": [
 				"main.js"
 			]
+		},
+		{
+			"matches": [
+				"*://m1.codeforces.com/contest/*/problem/*",
+				"*://m2.codeforces.com/contest/*/problem/*",
+				"*://m3.codeforces.com/contest/*/problem/*"
+				
+			],
+			"js": [
+				"copy.js"
+			]
 		}
 	],
 	"background": {
