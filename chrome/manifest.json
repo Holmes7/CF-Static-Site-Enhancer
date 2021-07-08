@@ -1,8 +1,8 @@
 {
 	"name": "CF Submission Count",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "This extension shows you the submission count for each problem during a contest on the static codeforces websites",
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"icons": {
 		"48": "static/icon48.png",
 		"64": "static/icon64.png",
@@ -15,26 +15,19 @@
 				"*://m2.codeforces.com/contest/*",
 				"*://m3.codeforces.com/contest/*"
 			],
-			"js": [
-				"main.js"
-			]
-		},
-		{
-			"matches": [
-				"*://codeforces.com/friends"
+			"css": [
+				"tables.css"
 			],
 			"js": [
-				"friends.js"
+				"main.js"
 			]
 		}
 	],
 	"background": {
-		"scripts": [
-			"background.js"
-		],
-		"persistent": false
+		"service_worker": "background.js"
 	},
-	"permissions": [
-		"https://codeforces.com/*"
+	"host_permissions": [
+		"https://codeforces.com/*",
+		"https://cf-predictor.herokuapp.com/*"
 	]
 }
