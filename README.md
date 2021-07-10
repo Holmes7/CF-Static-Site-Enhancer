@@ -1,12 +1,12 @@
-# CF Submission Count
+# CF Static Site Enhancer
 
-This extension shows you the submission count for each problem during a contest on the static codeforces websites
+This browser extension aims towards adding features to the static codeforces sites.
 
-![Chrome Image](chrome/static/chrome_image.png)
+### Features include
 
-## Install
+* Friends standings.
+* Copy button for copying input data to clipboard.
+* Predicted rating change. (Uses the [CF-predictor's](https://cf-predictor-frontend.herokuapp.com) new backend server. Intended to only work during the contest)
+* Submission count for the problems.
 
-[Chrome](https://chrome.google.com/webstore/detail/cf-submission-count/kephibooehcpbfddbnpgphdmpdmpkika?hl=en-GB&authuser=0)
-
-
-Go to the firefox directory for instructions on how to set up the add on locally.
+Each feature is accessible separately so that the browser doesn't make unnecessary computations.
