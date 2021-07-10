@@ -1,6 +1,6 @@
 {
-	"name": "CF Submission Count",
-	"version": "1.0.0",
+	"name": "CF static site enchancer",
+	"version": "2.0.0",
 	"description": "This extension shows you the submission count for each problem during a contest on the static codeforces websites",
 	"manifest_version": 2,
 	"icons": {
@@ -15,8 +15,22 @@
 				"*://m2.codeforces.com/contest/*",
 				"*://m3.codeforces.com/contest/*"
 			],
+			"css": [
+				"tables.css"
+			],
 			"js": [
 				"main.js"
+			]
+		},
+		{
+			"matches": [
+				"*://m1.codeforces.com/contest/*/problem/*",
+				"*://m2.codeforces.com/contest/*/problem/*",
+				"*://m3.codeforces.com/contest/*/problem/*"
+				
+			],
+			"js": [
+				"copy.js"
 			]
 		}
 	],
@@ -26,6 +40,7 @@
 		]
 	},
 	"permissions": [
-		"https://codeforces.com/*"
+		"https://codeforces.com/*",
+		"https://cf-predictor.herokuapp.com/*"
 	]
 }
