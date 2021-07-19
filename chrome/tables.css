@@ -1,10 +1,10 @@
 table{
     background: #fff;
 }
-table,thead,tbody,tfoot,tr, td,th{
+table,thead,tbody,tfoot,tr, td,th {
     text-align: center;
     margin: auto;
     border:1px solid #dedede;
     padding: 1rem;
-    width: 50%;
+    /*width: 50%;*/
 }

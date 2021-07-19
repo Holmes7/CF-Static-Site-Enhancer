@@ -2,6 +2,24 @@ let url = window.location.toString();
 if(url.length<=39){
 	x(url);
 }
+function addContainers() {
+	let tablediv = document.createElement('div');
+	tablediv.setAttribute('id', 'standings');
+	document.querySelector('main').appendChild(tablediv);
+
+	let th = document.createElement("th");
+	th.setAttribute('id', 'delta');
+	document.querySelector("main").querySelector("thead").querySelector("tr").appendChild(th);
+
+	let trs = document.querySelector('main').querySelector('tbody').querySelectorAll('tr');
+	console.log(trs.length)
+	for (tr of trs) {
+		let td = document.createElement("td");
+		td.setAttribute('class', 'submissions');
+		td.setAttribute('style', 'width: 50px');
+		tr.appendChild(td);
+	}
+}
 function x(url)
 {
 	let contest = url.match(/\d\d\d\d/);
@@ -15,25 +33,26 @@ function x(url)
 	subs_btn.innerHTML = "Get Submissions";
 	document.querySelector("main").appendChild(subs_btn);
 	subs_btn.addEventListener('click', function() {
-		browser.runtime.sendMessage({cf_url: str});
+		chrome.runtime.sendMessage({cf_url: str});
 	});	
 
 	let pred_btn = document.createElement("button");	
 	pred_btn.innerHTML = "Get Delta";
 	document.querySelector("main").appendChild(pred_btn);
 	pred_btn.addEventListener('click', function() {
-		browser.runtime.sendMessage({pred_url: pred_url});
+		chrome.runtime.sendMessage({pred_url: pred_url});
 	});
 
 	let stand_btn = document.createElement("button");	
 	stand_btn.innerHTML = "Get Standings";
 	document.querySelector("main").appendChild(stand_btn);
 	stand_btn.addEventListener('click', function() {
-		browser.runtime.sendMessage({friends_url: friends_url});
+		chrome.runtime.sendMessage({friends_url: friends_url});
 	});
 
+	addContainers();
 	//chrome.runtime.sendMessage({cf_url: str, pred_url: pred_url});
-	browser.runtime.onMessage.addListener(
+	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
 			if(request.text){
 				subs(request.text);
@@ -52,7 +71,9 @@ function show_standings(ftext) {
 	let page_html = document.createElement("html");
 	page_html.innerHTML = ftext;
 	let table = page_html.querySelector(".standings");
-	document.querySelector("main").appendChild(table);
+	let tablediv = document.querySelector("#standings");
+	tablediv.innerHTML = '';
+	tablediv.appendChild(table);
 }
 
 function subs(text) {
@@ -67,23 +88,24 @@ function subs(text) {
 		let texti = tds[3].textContent;
 		sub_list.push(texti);
 	}
-	tr_list = document.querySelector("main").querySelector("tbody").querySelectorAll("tr");
+	let subs_td_list = document.querySelectorAll('.submissions');
+	console.log(subs_td_list.length);
 	for(let i=0; i<sub_list.length; i++){
-		let x = document.createElement("td");
-		x.innerHTML = sub_list[i];
-		tr_list[i].appendChild(x);
+		subs_td_list[i].innerHTML = sub_list[i];
 	}
 }
 function showDelta(delta) {
-	let trh = document.querySelector("main").querySelector("thead").querySelector("tr");
-	let x = document.createElement("th");
-	if(delta>0){
-		x.innerHTML = "+"+delta;
-		x.style.color = 'green';
-	}
-	else {
+	let x = document.querySelector('#delta');
+	if(delta == "server down" || delta=='?'){
 		x.innerHTML = delta;
 		x.style.color = 'grey';
 	}
-	trh.appendChild(x);
+	else if(delta<=0){
+		x.innerHTML = delta;
+		x.style.color = 'grey';	
+	}
+	else {
+		x.innerHTML = "+"+delta;
+		x.style.color = 'green';
+	}
 }
