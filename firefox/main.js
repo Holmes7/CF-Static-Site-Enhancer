@@ -33,26 +33,26 @@ function x(url)
 	subs_btn.innerHTML = "Get Submissions";
 	document.querySelector("main").appendChild(subs_btn);
 	subs_btn.addEventListener('click', function() {
-		chrome.runtime.sendMessage({cf_url: str});
+		browser.runtime.sendMessage({cf_url: str});
 	});	
 
 	let pred_btn = document.createElement("button");	
 	pred_btn.innerHTML = "Get Delta";
 	document.querySelector("main").appendChild(pred_btn);
 	pred_btn.addEventListener('click', function() {
-		chrome.runtime.sendMessage({pred_url: pred_url});
+		browser.runtime.sendMessage({pred_url: pred_url});
 	});
 
 	let stand_btn = document.createElement("button");	
 	stand_btn.innerHTML = "Get Standings";
 	document.querySelector("main").appendChild(stand_btn);
 	stand_btn.addEventListener('click', function() {
-		chrome.runtime.sendMessage({friends_url: friends_url});
+		browser.runtime.sendMessage({friends_url: friends_url});
 	});
 
 	addContainers();
-	//chrome.runtime.sendMessage({cf_url: str, pred_url: pred_url});
-	chrome.runtime.onMessage.addListener(
+	//browser.runtime.sendMessage({cf_url: str, pred_url: pred_url});
+	browser.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
 			if(request.text){
 				subs(request.text);

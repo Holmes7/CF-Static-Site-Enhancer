@@ -18,27 +18,27 @@ async function get_delta(url) {
 		return 'server down';
 	}
 }
-chrome.runtime.onMessage.addListener(
+browser.runtime.onMessage.addListener(
 	async function(request, sender, sendResponse){
 		//console.log(sender);
 		if(request.cf_url){
 			let text = await get_cf_html(request.cf_url);
-			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, {text: text});
+			browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				browser.tabs.sendMessage(tabs[0].id, {text: text});
 			})
 		}
 		else if(request.pred_url) {
 			//console.log('delta');
 			let delta = await get_delta(request.pred_url);
-			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, {delta: delta});
+			browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				browser.tabs.sendMessage(tabs[0].id, {delta: delta});
 			})	
 		}
 		else {
 			let ftext = await get_cf_html(request.friends_url);
 			//console.log(ftext);
-			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, {ftext: ftext});
+			browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				browser.tabs.sendMessage(tabs[0].id, {ftext: ftext});
 			})	
 		}
 	})

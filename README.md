@@ -1,6 +1,6 @@
 # CF Static Site Enhancer
 
-This browser extension aims towards adding features to the static codeforces sites.
+This browser extension aims towards enhancing the static codeforces websites with additional features so that you get a complete environment during contests
 
 ### Features include
 
