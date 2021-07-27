@@ -10,3 +10,9 @@ This browser extension aims towards enhancing the static codeforces websites wit
 * Submission count for the problems.
 
 Each feature is accessible separately so that the browser doesn't make unnecessary computations.
+
+Install it for your browser
+
+[Chrome, Edge, Opera](https://chrome.google.com/webstore/detail/cf-static-site-enchancer/kephibooehcpbfddbnpgphdmpdmpkika?hl=en-GB&authuser=1)
+
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/cf-static-site-enchancer/)
